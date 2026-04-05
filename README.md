@@ -13,7 +13,7 @@ I build at the intersection of **AI Governance**, **Cybersecurity**, and **Distr
 I specialize in **Atomic Compute Governance**. While others use standard rate-limiting, I've built a reservation-based system using **Upstash Redis + Lua scripts** to eliminate race conditions in high-concurrency LLM environments.
 
 ### 🧪 Proof of Work
-- **[DWL-Simulator](https://github.com/Thsky-21/dwl-simulator):** A simulation tool demonstrating how a $0.01 prompt can turn into a $1,000 bill overnight, and how to stop it.
+- **[DWL-Simulator](https://www.thskyshield.com/simulator):** A simulation tool demonstrating how a $0.01 prompt can turn into a $1,000 bill overnight, and how to stop it.
 - **Hugging Face:** Published synthetic banking datasets for RLHF training.
 
 ---
