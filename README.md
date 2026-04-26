@@ -1,68 +1,25 @@
-# Hi, I'm Akash (Thsky) 🚀
+# Hi, I'm Akash (Thsky)
 
-**Founder & Engineer | Building Infrastructure That Should Exist**  
-Electronics & Instrumentation @ MSRIT, Bangalore.
+**Founder & Engineer** | Electronics & Instrumentation @ MSRIT, Bangalore
 
-I work at the intersection of **AI systems, security, and distributed infrastructure**.
-
-Right now, I’m focused on one thing:
-
-> **Making sure AI systems don’t destroy your wallet before they create value.**
-
-I’m extremely obsessed with learning and building — not casually, but to the point where it’s the only thing I think about most days.
+Building infrastructure for AI cost control.
 
 ---
 
-## 🛠 What I’m Building
+## 🛠 What I'm Building
 
-- **[ThskyShield](https://github.com/Thsky-21/thskyshield-public)**  
-  AI cost guardrails for real-world systems.  
-  A financial kill-switch for LLM calls that stops runaway costs **before** they happen.  
+**[ThskyShield](https://github.com/Thsky-21/thskyshield-public)** — A financial kill-switch for LLM API calls.
 
-  Built using atomic execution at the edge — because anything less breaks under real load.
+Stops Denial-of-Wallet attacks before they execute — not after.
 
-- **Next.js SDK**  
-  `@thsky-21/thskyshield`  
-  Protect your AI API in minutes. No complex setup. No guesswork.
+Built on atomic Lua scripts over Upstash Redis at the edge.
+If the budget isn't available, the request never runs. No tokens spent. No damage done.
 
----
-
-## ⚡ Technical Edge
-
-Most people are solving this with **rate limiting**.
-
-That doesn’t work.
-
-I built a **reservation-based compute control system** using:
-
-- Upstash Redis  
-- Atomic Lua scripts  
-- Edge execution  
-
-This eliminates race conditions in high-concurrency AI systems — meaning:
-
-> If the budget isn’t available, the request never executes.  
-> No tokens. No cost. No damage.
+**npm:** `@thsky-21/thskyshield` · **Live:** [thskyshield.com](https://thskyshield.com)
 
 ---
 
 ## 🧪 Proof of Work
 
-- **[DWL Simulator](https://www.thskyshield.com/simulator)**  
-  Shows how a $0.01 prompt can become a $1,000 bill — and how to stop it instantly.
-
-- **[Hugging Face](https://huggingface.co/ThSky21)**  
-  Published synthetic banking datasets for RLHF training.
-
----
-
-## What I Believe
-
-Most people are building AI features.
-
-I’m building the layer that **controls, constrains, and protects them**.
-
----
-
-> *I’m not here to build another tool.  
-> I’m here to build infrastructure that becomes unavoidable.*
+- **[DoW Attack Simulator](https://www.thskyshield.com/simulator)** — See how $0.01 becomes $1,000, and how to stop it
+- **[HuggingFace](https://huggingface.co/ThSky21)** — Synthetic banking datasets for RLHF training
