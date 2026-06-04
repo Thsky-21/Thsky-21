@@ -2,24 +2,70 @@
 
 **Founder & Engineer** | Electronics & Instrumentation @ MSRIT, Bangalore
 
-Building infrastructure for AI cost control.
-
 ---
 
-## 🛠 What I'm Building
+## What I'm Building
 
-**[ThskyShield](https://github.com/Thsky-21/thskyshield-public)** — A financial kill-switch for LLM API calls.
+**[Thskyshield](https://thskyshield.com)** — Runtime governance for autonomous AI agents.
 
-Stops Denial-of-Wallet attacks before they execute — not after.
+Agents fail in ways APIs don't. They loop. They overspend. They replay the same prompt
+until your credits are gone. By the time you notice, the damage is done.
 
-Built on atomic Lua scripts over Upstash Redis at the edge.
-If the budget isn't available, the request never runs. No tokens spent. No damage done.
+Thskyshield is the control plane that sits outside your agent code and enforces limits
+before each step executes — not after.
+
+**For Agents:**
+- Hard budget ceiling per run. Step blocked before the LLM call fires if the run is over budget.
+- Iteration limit. Agent cannot exceed N steps regardless of what the loop condition says.
+- Loop detection. Same prompt fingerprint repeating beyond threshold → killed automatically.
+- Wall-clock timeout. Run cannot exceed N seconds, no matter what.
+
+**For LLM Apps:**
+- Per-user daily spend enforcement. Atomic two-phase check/log — no race window.
+- Budget exhausted means the request never executes. No tokens spent. No damage done.
+
+One engine. Atomic Lua scripts over Upstash Redis. Sub-10ms. Fail-open by design —
+control plane failure never blocks your agent.
 
 **npm:** `@thsky-21/thskyshield` · **Live:** [thskyshield.com](https://thskyshield.com)
 
 ---
 
-## 🧪 Proof of Work
+## How It Works
 
-- **[DoW Attack Simulator](https://www.thskyshield.com/simulator)** — See how $0.01 becomes $1,000, and how to stop it
-- **[HuggingFace](https://huggingface.co/ThSky21)** — Synthetic banking datasets for RLHF training
+```ts
+const run = await shield.beginRun({ budgetLimitUsd: 2.00, iterationLimit: 30 })
+
+while (!done) {
+  // blocked here if budget hit, loop detected, timeout, or iteration limit reached
+  const { requestId } = await run.beforeStep({ stepType: 'llm', model, promptInput })
+  
+  const result = await callYourLLM()
+  
+  await run.afterStep({ requestId, actualTokens: result.usage.total_tokens, model })
+}
+```
+
+Works with LangGraph, CrewAI, OpenAI Agents SDK, or any framework.
+
+---
+
+## Proof of Work
+
+- **[DoW Attack Simulator](https://thskyshield.com/llm-app/simulator)** — watch $0.01 become
+  $1,000 in real time, then watch Thskyshield stop it
+- **[Agent SDK Docs](https://thskyshield.com/agents/docs)** — full reference:
+  `beginRun` / `beforeStep` / `afterStep` / `ShieldKilledError` / HTTP API
+- **[Kill Switch Article](https://thskyshield.com/blog/why-your-ai-agent-needs-a-kill-switch)**
+  — why try/catch doesn't save you when your agent loops
+
+---
+
+## Status
+
+- Agent governance engine: built, tested, running in production
+- SDK v3.0.0: local, design partner review before npm publish
+- Looking for: solo founders and small teams shipping agents on LangGraph / CrewAI /
+  OpenAI Agents SDK who've hit runaway costs or infinite loops
+
+If that's you: [thskyshield.com/agents](https://thskyshield.com/agents)
