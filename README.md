@@ -6,7 +6,7 @@
 
 ## What I'm Building
 
-**[Thskyshield](https://thskyshield.com)** — the control plane that stops an AI agent
+**[Thsky shield](https://thskyshield.com)** — the control plane that stops an AI agent
 from spending $200 on a $2 task.
 
 An agent that gets stuck doesn't crash. It retries. It re-sends a near-identical
