@@ -1,4 +1,4 @@
-# Hi, I'm Akash (Thsky)
+# Hi, I'm Akash 
 
 **Founder & Engineer** | Electronics & Instrumentation @ MSRIT, Bangalore
 
